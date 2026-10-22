@@ -1,0 +1,25 @@
+# One-click deploy on Render: Dashboard -> New -> Blueprint -> pick this repo.
+# Compute plan (0.5 CPU / 512 MB, paid) is set in the Render dashboard, not here.
+# The server runs its own MongoDB on a persistent disk, so records survive restarts and redeploys.
+# Sample data is loaded only when the database is empty. Set MONGO_URI (MongoDB Atlas) to use an external database instead.
+services:
+  - type: web
+    name: carepoint-hms
+    runtime: node
+    region: singapore
+    buildCommand: npm install --prefix server && npm install --prefix client --include=dev && npm run build --prefix client
+    startCommand: npm start --prefix server
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: TZ
+        value: Asia/Kolkata
+      - key: JWT_SECRET
+        generateValue: true
+      - key: MONGO_URI
+        sync: false
+    disk:
+      name: hms-data
+      mountPath: /opt/render/project/src/server/data
+      sizeGB: 1

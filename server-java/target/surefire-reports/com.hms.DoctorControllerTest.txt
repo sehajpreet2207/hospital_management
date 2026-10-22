@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.hms.DoctorControllerTest
+-------------------------------------------------------------------------------
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.754 s -- in com.hms.DoctorControllerTest
