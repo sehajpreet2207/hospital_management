@@ -34,6 +34,7 @@ export default function Login() {
   return (
     <div className="auth-page">
       <div className="auth-side">
+        <img className="auth-photo" src="/carepoint-hospital.png" alt="" aria-hidden="true" />
         <div className="brand brand-light">
           <span className="brand-mark">
             <svg viewBox="0 0 32 32" width="34" height="34"><rect width="32" height="32" rx="7" fill="#fff" /><path d="M13 7h6v6h6v6h-6v6h-6v-6H7v-6h6z" fill="#0f766e" /></svg>
